@@ -1,0 +1,80 @@
+\documentclass[cp1251,hyperref]{G7-32}
+\usepackage[T2A]{fontenc}
+\usefont{T2A}{ftm}{m}{} %%% Использование шрифтов Т2 для возможности скопировать текст из PDF-файлов.
+\usepackage[cp1251]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{totcount}
+\usepackage{fancyhdr,lastpage}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage[dvips]{graphicx} %разрешить включение PostScript-графики
+\usepackage{listings}
+\usepackage{tabularx}
+\graphicspath{{fig/}}
+\usepackage{cite}  %"умные" библиографические ссылки (сортировка и сжатие)
+\bibliographystyle{gost705} %Стиль библиографических ссылок БибТеХа - нумеровать в порядке упоминания в тексте
+
+\usepackage{geometry} %способ ручной установки полей
+\geometry{top=2cm} %поле сверху
+\geometry{bottom=2.5cm} %поле снизу
+\geometry{left=2.5cm} %поле справа
+\geometry{right=2cm} %поле слева
+
+%определение формата листинга
+\renewcommand*\lstlistingname{Листинг}
+\lstset{language=C,basicstyle=\footnotesize\ttfamily,
+tabsize=2, columns=fullflexible, xleftmargin=30pt,
+captionpos=b,showstringspaces=false}
+
+%определяем счетчики для картинок
+\newtotcounter{figurecnt}
+\def\oldfig{} \let\oldfig=\figure
+\def\figure{\stepcounter{figurecnt}\oldfig}
+%таблиц (only longtable)
+\newtotcounter{tablecnt}
+\def\oldtab{} \let\oldtab=\longtable
+\def\longtable{\stepcounter{tablecnt}\oldtab}
+
+%определям формат работы с приложениями
+\makeatletter
+\newtotcounter{sect}
+\renewcommand{\thesect}{\Asbuk{sect}.\,}
+\newcommand\apx[2]{\refstepcounter{sect}\par\vspace{1.5cm plus 1cm minus .5cm}
+	{\begin{center} 
+\large\textbf{ПРИЛОЖЕНИЕ~\thesect} \\ \textnormal{#1}
+\end{center}}%
+	\addcontentsline{toc}{section}{ПРИЛОЖЕНИЕ~\thesect #1}\markboth{\thesect #1}{\thesect #1}%
+	\nopagebreak\bigskip\par\label{apx:#2}}
+\makeatother 
+
+\TableInChaper % таблицы будут нумероваться в пределах раздела
+\PicInChaper   % рисунки будут нумероваться в пределах раздела
+%----------------------------------------------------------------
+\begin{document}
+
+\def\keywords{Анализ, Исполняемые Файлы, Реверс Инжиниринг, Защита от Отладки, Переполнение буфера, Ошибка форматной строки}
+
+%TODO автоматический подсчет элементов библиографии
+\def\bibnum{5}
+%
+
+\frontmatter  %%% здесь начинаются ненумерованные главы
+\input{text/title}%Аннотация на английском
+\input{text/annotation}%Аннотация
+\input{text/referat}%Реферат
+\input{text/graphs}%Граф материал
+\input{text/reduction}%Сокращения
+\tableofcontents\clearpage %Содержание
+\input{text/analysis}%анализ тех задания
+\input{text/intro}%Введение
+\mainmatter %% включаем нумерацию глав и секций в документе ниже
+\input{text/chapter1}
+\input{text/chapter2}
+\backmatter %%выключаем нумерацию
+\input{text/concl}%Заключение
+
+\bibliography{mybibl}
+\clearpage
+\input{text/app-a}%Приложение A
+\end{document}
+

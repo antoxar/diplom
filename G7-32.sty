@@ -1,0 +1,53 @@
+% This package designed and commented in russian koi8-r encoding.
+%
+% Лицензия GNU GPL v2 и совместимые
+%
+% Автор - Алексей Томин, с помощью списка рассылки latex-gost-request@ice.ru
+% Все вопросы, замечания и пожелания сюда: mailto:alxt@yandex.ru
+%
+% Дальнейшая разработка и поддержка - Михаил Конник,
+% связаться можно по адресу mydebianblog@gmail.com
+%
+\ProvidesPackage{G7-32}[2003/07/07 v1.00 Titles for GOST 7.32-2001]
+
+%стандартные части
+\newcommand\Executors{%список исполнителей
+ \chapter*{\CYRS\cyrp\cyri\cyrs\cyro\cyrk~%
+           \cyri\cyrs\cyrp\cyro\cyrl\cyrn\cyri\cyrt\cyre\cyrl\cyre\cyr\cyrishrt}%
+}
+\newcommand\Referat{%реферат
+ \chapter*{\CYRR\CYRE\CYRF\CYRE\CYRR\CYRA\CYRT}%
+}
+\addto\captionsrussian{%содержание
+ \def\contentsname{%
+  \CYRS\CYRO\CYRD\CYRE\CYRR\CYRZH\CYRA\CYRN\CYRI\CYRE}%
+}
+\newcommand\NormRefs{%нормативные ссылки
+ \chapter*{\CYRN\cyro\cyrr\cyrm\cyra\cyrt\cyri\cyrv\cyrn\cyrery\cyre~%
+           \cyrs\cyrs\cyrery\cyrl\cyrk\cyri}%
+}
+\newcommand\Defines{%определения
+ \chapter*{\CYRO\cyrp\cyrr\cyre\cyrd\cyre\cyrl\cyre\cyrn\cyri\cyrya}%
+}
+\newcommand\Abbreviations{%обозначения и сокращения
+ \chapter*{\CYRO\cyrb\cyro\cyrz\cyrn\cyra\cyrch\cyre\cyrn\cyri\cyrya~\cyri~%
+           \cyrs\cyro\cyrk\cyrr\cyra\cyrshch\cyre\cyrn\cyri\cyrya}%
+}
+
+\newcommand\Analysis{%Анализ технического задания
+ \chapter*{Анализ технического задания}%
+}
+
+\newcommand\Introduction{%введение
+ \chapter{\CYRV\CYRV\CYRE\CYRD\CYRE\CYRN\CYRI\CYRE}%
+}
+\newcommand\Conclusion{%заключение
+ \chapter{\CYRZ\CYRA\CYRK\CYRL\CYRYU\CYRCH\CYRE\CYRN\CYRI\CYRE}%
+}
+\addto\captionsrussian{%список использованных источников
+ \def\bibname{%
+  \CYRS\CYRP\CYRI\CYRS\CYRO\CYRK~
+\CYRI\CYRS\CYRP\CYRO\CYRL\CYRSFTSN\CYRZ\CYRO\CYRV\CYRA\CYRN\CYRN\CYRERY\CYRH~
+\CYRI\CYRS\CYRT\CYRO\CYRCH\CYRN\CYRI\CYRK\CYRO\CYRV}%
+}
+

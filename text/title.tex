@@ -1,0 +1,74 @@
+%
+% Титульный лист на русском языке
+%
+
+% Горизонтальный отступ перед чертой в текстовым поле для имени, ученой
+\def\fieldhshift{8.5cm}
+
+\def\firstskip{1.5cm}
+\def\secondskip{1.5cm}
+\def\thirdskip{2ex}
+
+\def\titlefont{\Large\bfseries}
+\def\topiclabelfont{\large}
+\def\topicfont{\normalsize}
+
+\thispagestyle{empty}
+
+
+\begin{center}
+ \begin{singlespacing}
+Министерство образования и науки Российской Федерации\\
+Федеральное агентство по образованию\\
+Южный федеральный университет\\
+Технологический институт\\
+Южного федерального университета в г.Таганроге\\
+\centering\line(1,0){160}\\
+Факультет  информационной безопасности\\
+Кафедра безопасности информационных технологий\\
+ \end{singlespacing}
+\end{center}
+
+\vskip\firstskip
+
+% Допустить к защите
+\hfill
+\begin{minipage}{.5\linewidth}
+  {<<К защите допустить>>}\hrulefill\\[9pt]%
+	% Имя лица, допускающего к защите (зав. кафедрой)
+   д.\,т.\,н., профессор О.\,Б.~Макаревич\\%
+   <<\makebox[1cm]{\hrulefill}>> \makebox[3cm]{\hrulefill} 20\makebox[.5cm]{\hrulefill} г.
+\end{minipage}
+
+\vskip\secondskip
+
+\begin{center}
+\titlefont{Пояснительная записка}\\
+\normalsize {к дипломному проекту}
+\end{center}
+% Тема
+\begin{center}
+на тему: {Разработка курса лабораторных работ по статическому изучению исполняемых файлов}
+\end{center}
+
+\vskip\thirdskip
+\begin{flushleft}
+\begin{tabularx}{\textwidth}{XXX} 
+  \multicolumn{3}{l}{Научный руководитель: }\\
+  {к.\,т.\,н., доцент}&\makebox[5cm]{\hrulefill} & {И.\,И.~Иванов}\\
+\multicolumn{3}{l}{Консультанты: }\\
+  \multicolumn{3}{l}{- по разделу <<Безопасность и экологичность проекта>>}\\
+  {к.\,т.\,н., доцент}&\makebox[5cm]{\hrulefill} & {И.\,И.~Иванов}\\
+  \multicolumn{3}{l}{- по разделу <<Технико-экономическое обоснование проекта>>} \\
+  {к.\,т.\,н., доцент}&\makebox[5cm]{\hrulefill} & {И.\,И.~Иванов}\\
+\multicolumn{3}{l}{Нормоконтролер:}\\
+  {к.\,т.\,н., доцент}&\makebox[5cm]{\hrulefill} & {И.\,И.~Иванов}\\
+  \\
+\multicolumn{3}{l}{Дипломник~{Речков~А.Л.}~гр.~{И-25} ~\makebox[5cm]{\hrulefill}}
+\end{tabularx} 
+\end{flushleft}
+
+\begin{flushleft}
+ <<\makebox[1cm]{\hrulefill}>> \makebox[3cm]{\hrulefill} 20\makebox[.5cm]{\hrulefill} г.
+\end{flushleft}
+\clearpage
