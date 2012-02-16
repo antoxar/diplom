@@ -10,6 +10,8 @@
 \usepackage[dvips]{graphicx} %разрешить включение PostScript-графики
 \usepackage{listings}
 \usepackage{tabularx}
+\usepackage{courier}
+\usepackage{boolexpr} 
 \graphicspath{{fig/}}
 \usepackage{cite}  %"умные" библиографические ссылки (сортировка и сжатие)
 \bibliographystyle{gost705} %Стиль библиографических ссылок БибТеХа - нумеровать в порядке упоминания в тексте
@@ -22,8 +24,8 @@
 
 %определение формата листинга
 \renewcommand*\lstlistingname{Листинг}
-\lstset{language=C,basicstyle=\footnotesize\ttfamily,
-tabsize=2, columns=fullflexible, xleftmargin=30pt,
+\lstset{language=C,basicstyle=\ttfamily,
+tabsize=2, columns=fullflexible, xleftmargin=\parindent,
 captionpos=b,showstringspaces=false}
 
 %определяем счетчики для картинок
@@ -34,6 +36,27 @@ captionpos=b,showstringspaces=false}
 \newtotcounter{tablecnt}
 \def\oldtab{} \let\oldtab=\longtable
 \def\longtable{\stepcounter{tablecnt}\oldtab}
+
+\regtotcounter{page}
+
+\def\formbytotal#1#2#3#4#5{%
+    \newcount\c
+    \c \totvalue{#1}\relax
+    \newcount\last
+    \newcount\pnul
+    \last \c\relax
+    \divide \last 10
+    \pnul \last\relax
+    \divide\pnul 10
+    \multiply \pnul-10
+    \advance \pnul\last
+    \multiply \last-10
+    \advance \last\c
+    \total{#1}~#2%
+    \ifnum\pnul=1#5\else%
+        \ifcase\last#5\or#3\or#4\or#4\or#4\else#5\fi
+    \fi
+}
 
 %определям формат работы с приложениями
 \makeatletter
@@ -51,7 +74,6 @@ captionpos=b,showstringspaces=false}
 \PicInChaper   % рисунки будут нумероваться в пределах раздела
 %----------------------------------------------------------------
 \begin{document}
-
 \def\keywords{Анализ, Исполняемые Файлы, Реверс Инжиниринг, Защита от Отладки, Переполнение буфера, Ошибка форматной строки}
 
 %TODO автоматический подсчет элементов библиографии
