@@ -88,3 +88,36 @@
 \section{Методы обнаружения ошибок форматного вывода}
 \par Методы обнаружения уязвимостей, обеспечивающие покрытие для ошибок форматного ввода приведены в пункте \ref{sec:detection}. Ссылка на приложение \ref{apx:Spec}
 
+Списки и перечни можно друг в друга вкладывать, то есть можно делать так:
+
+\begin{enumerate}% начало нумерованного списка
+\item Первый.% первая нумерованная запись
+	\begin{enumerate}
+	\item Первый первый
+	\item Первый второй
+	\begin{itemize}
+	\item Первый второй первый
+	\item Первый второй второй
+	\end{itemize}
+	\end{enumerate}
+\item Второй.% вторая нумерованная запись
+\end{enumerate}% конец нумерованного списка
+
+\par  В \ref{eq:fourierrow} изображена формула разложения в ряд Фурье. Примеры формул в тексте приведено ниже.
+\begin{equation}\label{eq:fourierrow}
+f(x) =
+\frac{A_0}{2}
++
+\sum \limits_{n=1}^{\infty} A_n \cos \left( \frac{2 n \pi x}{\nu} - \alpha_n \right)
+\end{equation}
+\par A grammar is formally defined as the tuple (N,$\Sigma$,P,S), where
+\begin{itemize}
+\item a finite set N of nonterminal symbols, none of which appear in strings formed from G;
+\item a finite set $\Sigma$ of terminal symbols that is disjoint from N;
+\item P is a rewriting system, that is to say a finite set of rules $P \subseteq ( \Sigma \bigcup N )^\ast\times( \Sigma \bigcup N )^\ast$, 
+such that $(\upsilon, \nu) \in P \Longrightarrow \upsilon \in \Sigma $; 
+\item A distinguished symbol $S \in N $ that is the start symbol.
+\end{itemize}	
+\par Such a formal grammar is often called a rewriting system or a phrase structure grammar in the literature. 
+A formal language is finally defined by the set of words $L(G) = {x \in \Sigma^\ast |S \rightarrow^\ast x}$ with respect to the grammar G = (N,$\Sigma$,P,S).
+
