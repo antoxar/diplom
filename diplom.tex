@@ -37,6 +37,16 @@ captionpos=b,showstringspaces=false}
 \def\oldtab{} \let\oldtab=\longtable
 \def\longtable{\stepcounter{tablecnt}\oldtab}
 
+%таблиц (only longtable)
+\newtotcounter{citeitem}
+\renewcommand{\citeform}[1]{%
+\ifnum#1>\totvalue{citeitem}%
+{\setcounter{citeitem}{#1} }\fi%
+#1%
+}
+%\def\oldcite{} \let\oldcite=\cite
+%\def\cite{\setcounter{citeitem}\oldcite}
+
 \regtotcounter{page}
 
 \def\formbytotal#1#2#3#4#5{%
@@ -75,10 +85,6 @@ captionpos=b,showstringspaces=false}
 %----------------------------------------------------------------
 \begin{document}
 \def\keywords{Анализ, Исполняемые Файлы, Реверс Инжиниринг, Защита от Отладки, Переполнение буфера, Ошибка форматной строки}
-
-%TODO автоматический подсчет элементов библиографии
-\def\bibnum{5}
-%
 
 \frontmatter  %%% здесь начинаются ненумерованные главы
 \input{text/title}%Аннотация на английском
